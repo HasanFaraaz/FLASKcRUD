@@ -15,8 +15,11 @@ CRUD Demo App
 
 1.) How to start/use :-
   After the requirements have been installed. Just start the app.py. app.py takes care of creating the db with the table, if it is not present.
-2.) Navigate to localhost:5001
+  
+2.) Open the browser to localhost:5001
+
 3.) This is a single page web app, which will show all the operations of CRUD.
+
 4.) The buttons given in the form are self-explnatory, which perform all the tasks of the assignment.
 
 
