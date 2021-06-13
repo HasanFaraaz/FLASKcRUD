@@ -7,6 +7,7 @@ Preferred tech Python/NodeJS
 Requirements:-
 --------------
 1.) Have MySql DB running at port 3306
+
 2.) Have all python dependencies installed via the requirements.txt file
 
 
