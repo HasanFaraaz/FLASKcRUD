@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = "Secret Key"
 
 #SqlAlchemy With Mysql
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/lowes2'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/lowes'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -29,7 +29,7 @@ class User(db.Model):
 mysql_engine = create_engine('mysql://root:''@localhost:3306')
 
 # Query for existing databases
-mysql_engine.execute("CREATE DATABASE IF NOT EXISTS lowes2 ")
+mysql_engine.execute("CREATE DATABASE IF NOT EXISTS lowes")
 
 #Get all our user data
 @app.route('/')
