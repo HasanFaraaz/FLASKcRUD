@@ -26,5 +26,5 @@ CRUD Demo App
 
 Tech used:-
 -----------
-Bootstrap, Python, SqlAlchemy, MysqlDB, Flask
+Bootstrap, Jinja Template, Python, SqlAlchemy, MysqlDB, Flask
 
