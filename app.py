@@ -1,11 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine
+from sqlalchemy import exc
+
 
 app = Flask(__name__)
 app.secret_key = "Secret Key"
 
 #SqlAlchemy With Mysql
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/lowes'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/lowes2'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -22,11 +25,20 @@ class User(db.Model):
         self.email = email
         self.phone = phone
 
+# This engine just used to query for list of databases
+mysql_engine = create_engine('mysql://root:''@localhost:3306')
+
+# Query for existing databases
+mysql_engine.execute("CREATE DATABASE IF NOT EXISTS lowes2 ")
 
 #Get all our user data
 @app.route('/')
 def Index():
-    all_data = User.query.all()
+    try:
+        all_data = User.query.all()
+    except exc.SQLAlchemyError:
+        db.create_all()
+        all_data = User.query.all()
     return render_template("index.html", records = all_data)
 
 # insert data to mysql db via FE
@@ -66,8 +78,6 @@ def delete(id):
     db.session.commit()
     flash("User Deleted Successfully")
     return redirect(url_for('Index'))
-
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
