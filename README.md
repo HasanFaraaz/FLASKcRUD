@@ -1,6 +1,6 @@
 
 
-Assignment : Create Web APIs for CRUD(Create/Read/Update/Delete) operations for user management, feel free to use any database including excel sheet/file etc. 
+Create Web APIs for CRUD(Create/Read/Update/Delete) operations for user management, feel free to use any database including excel sheet/file etc. 
 Preferred tech Python/NodeJS
 
 
